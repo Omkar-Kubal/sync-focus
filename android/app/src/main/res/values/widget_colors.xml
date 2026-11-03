@@ -1,0 +1,8 @@
+<resources>
+    <color name="widget_focus_canvas">#FFFFFF</color>
+    <color name="widget_focus_ink">#171717</color>
+    <color name="widget_focus_body">#536273</color>
+    <color name="widget_focus_blue">#70A9F7</color>
+    <color name="widget_focus_track">#DCEBFA</color>
+    <color name="widget_focus_border">#D4E1F2</color>
+</resources>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Sync Focus focal point logo concept">
+  <g fill="none" stroke="#111111" stroke-width="46" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M176 111H139Q111 111 111 139V176"/>
+    <path d="M336 111H373Q401 111 401 139V176"/>
+    <path d="M401 336V373Q401 401 373 401H336"/>
+    <path d="M176 401H139Q111 401 111 373V336"/>
+  </g>
+  <circle cx="256" cy="256" r="50" fill="#111111"/>
+</svg>
