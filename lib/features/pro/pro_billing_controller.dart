@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:syncfocus/core/analytics/app_analytics.dart';
+import 'package:syncfocus/core/crash/crash_reporter.dart';
 
 import 'pro_billing_service.dart';
 
@@ -56,6 +58,7 @@ class ProBillingController extends ChangeNotifier {
   StreamSubscription<List<ProPurchaseUpdate>>? _purchaseSubscription;
   Future<void>? _loadFuture;
   List<ProPurchaseOption> _options = const [];
+  final Set<String> _loggedRevenueIdentifiers = <String>{};
   ProPurchasePlan? _selectedPlan;
   ProBillingStatus _status = ProBillingStatus.loading;
   String? _message;
@@ -216,11 +219,14 @@ class ProBillingController extends ChangeNotifier {
       switch (update.status) {
         case ProPurchaseUpdateStatus.purchased:
         case ProPurchaseUpdateStatus.restored:
+          final isNewPurchase =
+              update.status == ProPurchaseUpdateStatus.purchased;
           _isPro = true;
           _status = ProBillingStatus.active;
           _purchaseRetryAvailable = false;
           _message = null;
           await _persistEntitlement(true);
+          if (isNewPurchase) unawaited(_logPurchaseRevenue(update));
           break;
         case ProPurchaseUpdateStatus.pending:
           if (!_isPro) {
@@ -254,6 +260,43 @@ class ProBillingController extends ChangeNotifier {
       }
     }
     _notify();
+  }
+
+  Future<void> _logPurchaseRevenue(ProPurchaseUpdate update) async {
+    ProPurchaseOption? option;
+    for (final candidate in _options) {
+      if (candidate.product.id == update.productId) {
+        option = candidate;
+        break;
+      }
+    }
+    if (option == null) return;
+
+    final rawTransactionId = update.rawPurchase?.purchaseID?.trim();
+    final transactionId = rawTransactionId?.isNotEmpty == true
+        ? rawTransactionId
+        : null;
+    final revenueIdentifier = transactionId ?? update.productId;
+    if (!_loggedRevenueIdentifiers.add(revenueIdentifier)) return;
+
+    try {
+      await AppAnalytics.logPurchaseRevenue(
+        AppAnalyticsPurchaseEvent(
+          productId: option.product.id,
+          productName: option.product.title,
+          value: option.product.rawPrice,
+          currency: option.product.currencyCode,
+          quantity: 1,
+          transactionId: transactionId,
+        ),
+      );
+    } on Object catch (error, stackTrace) {
+      await CrashReporter.recordError(
+        error,
+        stackTrace,
+        'Firebase purchase revenue logging failed',
+      );
+    }
   }
 
   Future<void> _applyOwnership(

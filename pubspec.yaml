@@ -37,6 +37,12 @@ dependencies:
   just_audio: ^0.10.6
   shared_preferences: ^2.5.3
   url_launcher: ^6.3.2
+  # Firebase Core initializes the Firebase app for Crashlytics and Analytics.
+  firebase_core: ^4.12.1
+  # Firebase Crashlytics provides remote crash reporting for this Flutter app.
+  firebase_crashlytics: ^5.2.6
+  # Firebase Analytics records confirmed Google Play purchase revenue.
+  firebase_analytics: ^12.4.5
   # Flutter has no built-in Google Play subscription catalog, purchase, or restore API.
   in_app_purchase: ^3.3.0
   # Android queryPastPurchases is needed to reconcile active subscriptions authoritatively.
