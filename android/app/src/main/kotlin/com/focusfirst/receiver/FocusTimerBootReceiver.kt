@@ -1,9 +1,9 @@
-package com.appylab.syncfocus.receiver
+package com.focusfirst.receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.appylab.syncfocus.service.FocusTimerForegroundService
+import com.focusfirst.service.FocusTimerForegroundService
 
 /** Restores a running or paused focus timer after Android finishes booting. */
 class FocusTimerBootReceiver : BroadcastReceiver() {

@@ -1,4 +1,4 @@
-package com.appylab.syncfocus.widget
+package com.focusfirst.widget
 
 import android.app.PendingIntent
 import android.app.AlarmManager
@@ -17,8 +17,8 @@ import android.graphics.Shader
 import android.os.Build
 import android.os.SystemClock
 import android.widget.RemoteViews
-import com.appylab.syncfocus.MainActivity
-import com.appylab.syncfocus.R
+import com.focusfirst.MainActivity
+import com.focusfirst.R
 import kotlin.math.ceil
 import kotlin.math.cos
 import kotlin.math.roundToInt
@@ -39,7 +39,7 @@ private const val FOCUS_GUARD_ENABLED = "focus_guard_enabled"
 private const val BLOCKED_APPS = "blocked_apps"
 private const val AMBIENT_SOUND = "ambient_sound"
 private const val PENDING_ACTION = "pending_action"
-private const val ACTION_REFRESH_COMPLETED_TIMER = "com.appylab.syncfocus.widget.REFRESH_COMPLETED"
+private const val ACTION_REFRESH_COMPLETED_TIMER = "com.focusfirst.widget.REFRESH_COMPLETED"
 
 /** Small, dedicated storage shared by the launcher widgets and Flutter. */
 object FocusWidgetStateStore {

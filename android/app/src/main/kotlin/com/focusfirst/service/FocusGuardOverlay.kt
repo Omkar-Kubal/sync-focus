@@ -1,4 +1,4 @@
-package com.appylab.syncfocus.service
+package com.focusfirst.service
 
 import android.content.Context
 import android.content.Intent
@@ -11,7 +11,7 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.appylab.syncfocus.MainActivity
+import com.focusfirst.MainActivity
 
 /** Full-screen, touchable overlay shown over an app selected in Focus Guard. */
 internal class FocusGuardOverlay(private val context: Context) {

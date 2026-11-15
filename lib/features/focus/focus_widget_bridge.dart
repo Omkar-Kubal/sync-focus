@@ -16,7 +16,7 @@ class FocusWidgetBridge {
   });
 
   static const MethodChannel _channel = MethodChannel(
-    'com.appylab.syncfocus/widgets',
+    'com.focusfirst/widgets',
   );
 
   final FocusTimerController timer;

@@ -1,4 +1,4 @@
-package com.appylab.syncfocus
+package com.focusfirst
 
 import android.Manifest
 import android.app.AppOpsManager
@@ -17,8 +17,8 @@ import android.os.Bundle
 import android.provider.Settings
 import java.io.ByteArrayOutputStream
 import androidx.core.content.ContextCompat
-import com.appylab.syncfocus.service.FocusTimerForegroundService
-import com.appylab.syncfocus.widget.FocusWidgetStateStore
+import com.focusfirst.service.FocusTimerForegroundService
+import com.focusfirst.widget.FocusWidgetStateStore
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
@@ -267,10 +267,10 @@ class MainActivity : FlutterActivity() {
     }
 
     companion object {
-        const val WIDGET_CHANNEL = "com.appylab.syncfocus/widgets"
-        const val SETTINGS_CHANNEL = "com.appylab.syncfocus/settings"
-        const val ACTION_WIDGET_OPEN = "com.appylab.syncfocus.widget.OPEN"
-        const val ACTION_WIDGET_TOGGLE = "com.appylab.syncfocus.widget.TOGGLE"
+        const val WIDGET_CHANNEL = "com.focusfirst/widgets"
+        const val SETTINGS_CHANNEL = "com.focusfirst/settings"
+        const val ACTION_WIDGET_OPEN = "com.focusfirst.widget.OPEN"
+        const val ACTION_WIDGET_TOGGLE = "com.focusfirst.widget.TOGGLE"
 
         private const val PREFERENCES = "sync_focus_widget_timer"
         private const val KEY_NOTIFICATION_PERMISSION_REQUESTED = "notification_permission_requested"

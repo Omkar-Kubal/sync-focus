@@ -37,7 +37,7 @@ class SettingsPlatformBridge {
     : _channel = channel ?? const MethodChannel(_channelName),
       _isSupportedOverride = supportedOverride;
 
-  static const _channelName = 'com.appylab.syncfocus/settings';
+  static const _channelName = 'com.focusfirst/settings';
   final MethodChannel _channel;
   final bool? _isSupportedOverride;
 

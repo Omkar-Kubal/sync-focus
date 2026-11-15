@@ -1,4 +1,4 @@
-package com.appylab.syncfocus.service
+package com.focusfirst.service
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -19,9 +19,9 @@ import android.provider.Settings
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
 import androidx.core.content.ContextCompat
-import com.appylab.syncfocus.MainActivity
-import com.appylab.syncfocus.R
-import com.appylab.syncfocus.widget.FocusWidgetStateStore
+import com.focusfirst.MainActivity
+import com.focusfirst.R
+import com.focusfirst.widget.FocusWidgetStateStore
 import kotlin.math.max
 
 /** Keeps a user-started focus countdown alive while Flutter is backgrounded. */
@@ -505,13 +505,13 @@ class FocusTimerForegroundService : Service() {
     }
 
     companion object {
-        const val ACTION_TIMER_STATE_CHANGED = "com.appylab.syncfocus.TIMER_STATE_CHANGED"
+        const val ACTION_TIMER_STATE_CHANGED = "com.focusfirst.TIMER_STATE_CHANGED"
 
-        private const val ACTION_SYNC = "com.appylab.syncfocus.timer.SYNC"
-        private const val ACTION_PAUSE = "com.appylab.syncfocus.timer.PAUSE"
-        private const val ACTION_RESUME = "com.appylab.syncfocus.timer.RESUME"
-        private const val ACTION_STOP = "com.appylab.syncfocus.timer.STOP"
-        private const val ACTION_COMPLETION_ALARM = "com.appylab.syncfocus.timer.COMPLETION_ALARM"
+        private const val ACTION_SYNC = "com.focusfirst.timer.SYNC"
+        private const val ACTION_PAUSE = "com.focusfirst.timer.PAUSE"
+        private const val ACTION_RESUME = "com.focusfirst.timer.RESUME"
+        private const val ACTION_STOP = "com.focusfirst.timer.STOP"
+        private const val ACTION_COMPLETION_ALARM = "com.focusfirst.timer.COMPLETION_ALARM"
         private const val CHANNEL_TIMER = "sync_focus_timer"
         private const val CHANNEL_COMPLETION = "sync_focus_completion"
         private const val NOTIFICATION_ID = 5101

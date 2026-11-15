@@ -1,4 +1,4 @@
-package com.appylab.syncfocus.service
+package com.focusfirst.service
 
 import android.app.NotificationManager
 import android.content.Context
